@@ -14,10 +14,10 @@ public class CubeController : MonoBehaviour
     void Update()
     {
         if(Input.GetKey("left")) {
-            this.transform.localRotation *= Quaternion.Euler ( new Vector3(0, 1, 0));
+            this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.Euler ( new Vector3(0, 90, 0)), 0.1f);
         }
         if(Input.GetKey("right")) {
-            this.transform.localRotation *= Quaternion.Euler ( new Vector3(0, -1, 0));
+            this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.Euler (new Vector3(0, -90, 0)), 0.1f);
         }
         if(Input.GetKey("space")) {
             this.transform.localRotation = Quaternion.identity;
